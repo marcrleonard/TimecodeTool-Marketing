@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>TimecodeTool</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">TimecodeTool</a></li>
+							<li><a href="#one">Validate</a></li>
+							<li><a href="#two">Timecode Spans</a></li>
+							<li><a href="#three">Calculate</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>Timecode Tool</h1>
+							<p>TimecodeTool is a CLI that is meant to validate and calculate timecode spans. It is an <a href="https://github.com/marcrleonard/TimecodeTool/">open-source project</a> written in Go by <a href="https://marcrleonard.com">Marc Leoanrd</a>.
+							is released for free under the <a href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT License</a>.</p>
+							<ul class="actions">
+								<li><a href="https://github.com/marcrleonard/TimecodeTool/releases" class="button scrolly">Download</a></li>
+								<li><a href="https://github.com/marcrleonard/TimecodeTool" class="button scrolly"><img style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/github-mark-white.svg">View on GitHub</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 fullscreen fade-up">
+						<div class="inner">
+							<h2>Validate</h2>
+							<p>Enter a timecode to see if it is valid. Greate for scripting and checking user input.</p>
+							<code>TimecodeTool --fps=29.97 "00:07:00;00"</code>
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fullscreen fade-up">
+						<div class="inner">
+							<h2>Timecode Spans</h2>
+							<p>Enter a span to see if it is valid. Greate for scripting and checking user input.</p>
+							<code>TimecodeTool --fps=23.98 "00:01:00:00" "00:04:00:00"</code>
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h2>Calculate</h2>
+							<p>Enter a series of calculations to return a final run length.</p>
+							<code>TimecodeTool --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; TimecodeTool. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
