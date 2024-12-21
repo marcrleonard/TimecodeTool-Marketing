@@ -49,7 +49,7 @@
 						<div class="inner">
 							<h2>Validate</h2>
 							<p>Enter a timecode to see if it is valid. Greate for scripting and checking user input.</p>
-							<code>TimecodeTool --fps=29.97 "00:07:00;00"</code>
+							<code>TimecodeTool validate --fps=29.97 "00:07:00;00"</code>
 						</div>
 					</section>
 
@@ -58,7 +58,7 @@
 						<div class="inner">
 							<h2>Timecode Spans</h2>
 							<p>Enter a span to see if it is valid. Greate for scripting and checking user input.</p>
-							<code>TimecodeTool --fps=23.98 "00:01:00:00" "00:04:00:00"</code>
+							<code>TimecodeTool span --fps=23.98 "00:01:00:00" "00:04:00:00"</code>
 						</div>
 					</section>
 
@@ -67,7 +67,7 @@
 						<div class="inner">
 							<h2>Calculate</h2>
 							<p>Enter a series of calculations to return a final run length.</p>
-							<code>TimecodeTool --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code>
+							<code>TimecodeTool calculate --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code>
 						</div>
 					</section>
 
@@ -77,7 +77,7 @@
 			<footer id="footer" class="wrapper style1">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; TimecodeTool. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy;TimecodeTool. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
