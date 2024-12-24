@@ -115,8 +115,7 @@ Input Timecode:   00:07:00;00
 Frame Rate (FPS): 29.97
 Valid Timecode:   ❌ No
 Error:            00:07:00;00 is valid timecode for drop frame.
-─────────────────────────────
-</code></pre>
+─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2">
     <pre><code class="exampleOutput">{
@@ -143,23 +142,37 @@ Error:            00:07:00;00 is valid timecode for drop frame.
             </div>
 
             <div class="tab-content active" id="tab1_span">
-    <pre><code class="exampleOutput">🎥 TimecodeTool Validate
+    <pre><code class="exampleOutput">🎥 TimecodeTool Span
 ─────────────────────────────
-Input Timecode:   00:07:00;00
-Frame Rate (FPS): 29.97
-Valid Timecode:   ❌ No
-Error:            00:07:00;00 is valid timecode for drop frame.
-─────────────────────────────
-</code></pre>
+First Timecode:   00:01:00:00
+Last Timecode:    00:04:00:00
+Frame Rate (FPS): 23.98
+Valid Span:       ✅ Yes
+Start Frame Index:    1440
+Last Frame Index:     5760
+Length (Frames):      4321
+Length (Real Time):   00:03:00.192
+Length (Seconds):     180.19
+Length (Timecode):    00:03:00:01
+Next Timecode:        00:04:00:01
+─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2_span">
     <pre><code class="exampleOutput">{
-  "inputTimecode": "00:07:00;00",
-  "inputFps": 29.97,
-  "valid": false,
-  "errorMsg": "00:07:00;00 is valid timecode for drop frame.",
+  "inputFirstTimecode": "00:01:00:00",
+  "inputLastTimecode": "00:04:00:00",
+  "inputFps": 23.98,
+  "valid": true,
+  "errorMsg": "",
   "isDf": false,
-  "nextTimecode": ""
+  "excludeLastTimecode": false,
+  "startFrameIdx": 1440,
+  "lastFrameIdx": 5760,
+  "lengthFrames": 4321,
+  "lengthTime": "00:03:00.192",
+  "lengthTimecode": "00:03:00:01",
+  "lengthSeconds": 180.19182652210174,
+  "nextTimecode": "00:04:00:01"
 }</code></pre>
             </div>
         </div>
@@ -186,8 +199,7 @@ Error:            00:07:00;00 is valid timecode for drop frame.
 ─────────────────────────────
  🟰  Resulting Timecode:    00:04:59:17 (5754 total frames)
 1440 ➡️ 7193 frame indexes
-─────────────────────────────
-</code></pre>
+─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2_calc">
     <pre><code class="exampleOutput">{
@@ -222,8 +234,7 @@ Error:            00:07:00;00 is valid timecode for drop frame.
       "frames": 11
     }
   ]
-}
-</code></pre>
+}</code></pre>
             </div>
         </div>
     </section>
