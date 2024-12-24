@@ -5,91 +5,310 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>TimecodeTool</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+    <title>TimecodeTool</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">TimecodeTool</a></li>
-							<li><a href="#one">Validate</a></li>
-							<li><a href="#two">Timecode Spans</a></li>
-							<li><a href="#three">Calculate</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+    <style>
+        .exampleOutput {
+            margin: 0;
+            border-radius: 0.0em 0.0em 0.25em 0.25em;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: -1px;
+        }
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Timecode Tool</h1>
-							<p>TimecodeTool is a CLI that is meant to validate and calculate timecode spans. It is an <a href="https://github.com/marcrleonard/TimecodeTool/">open-source project</a> written in Go by <a href="https://marcrleonard.com">Marc Leoanrd</a>.
-							is released for free under the <a href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT License</a>.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/marcrleonard/TimecodeTool/releases" class="button scrolly">Download</a></li>
-								<li><a href="https://github.com/marcrleonard/TimecodeTool" class="button scrolly"><img style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/github-mark-white.svg">View on GitHub</a></li>
-							</ul>
-						</div>
-					</section>
+        .tab {
+            /*flex: 1;*/
+            padding: 10px;
+            /*text-align: center;*/
+            /*background-color: #f1f1f1;*/
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 fullscreen fade-up">
-						<div class="inner">
-							<h2>Validate</h2>
-							<p>Enter a timecode to see if it is valid. Greate for scripting and checking user input.</p>
-							<code>TimecodeTool validate --fps=29.97 "00:07:00;00"</code>
-						</div>
-					</section>
+        }
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fullscreen fade-up">
-						<div class="inner">
-							<h2>Timecode Spans</h2>
-							<p>Enter a span to see if it is valid. Greate for scripting and checking user input.</p>
-							<code>TimecodeTool span --fps=23.98 "00:01:00:00" "00:04:00:00"</code>
-						</div>
-					</section>
+        .tab.active {
+            /*background-color: #6e6e6e;*/
+            border: solid 1px rgba(255, 255, 255, 0.15);
+        }
 
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h2>Calculate</h2>
-							<p>Enter a series of calculations to return a final run length.</p>
-							<code>TimecodeTool calculate --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code>
-						</div>
-					</section>
+        .tab-content {
+            display: none;
+            /*border: 1px solid rgba(204, 204, 204, 0.25);*/
+            /*padding: 10px;*/
+        }
 
-			</div>
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy;TimecodeTool. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+</head>
+<body class="is-preload">
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!-- Sidebar -->
+<section id="sidebar">
+    <div class="inner">
+        <nav>
+            <ul>
+                <li><a href="#intro">TimecodeTool</a></li>
+                <li><a href="#one">Validate</a></li>
+                <li><a href="#two">Timecode Spans</a></li>
+                <li><a href="#three">Calculate</a></li>
+                <li><a href="#dd">Download</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
 
-	</body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Intro -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+            <h1>Timecode Tool</h1>
+            <p>TimecodeTool is a CLI that is meant to validate and calculate timecode spans. It is an <a
+                    href="https://github.com/marcrleonard/TimecodeTool/">open-source project</a> written in Go by <a
+                    href="https://marcrleonard.com">Marc Leonard</a>.
+                is released for free under the <a href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT
+                    License</a>.</p>
+            <ul class="actions">
+                <li><a href="#dd" class="button scrolly"><img style="padding-right: 10px; margin-bottom: -5px" height="20"  src="images/download-64.png"> Download</a>
+                </li>
+                <li><a href="https://github.com/marcrleonard/TimecodeTool" class="button scrolly"><img
+                        style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/github-mark-white.svg">View
+                    on GitHub</a></li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="wrapper style2 fullscreen fade-up">
+        <div class="inner">
+            <h2>Validate</h2>
+            <p>Enter a timecode to see if it is valid. Greate for scripting and checking user input.</p>
+            <pre><code>TimecodeTool validate --fps=29.97 "00:07:00;00"</code></pre>
+            <div class="tabs">
+                <div class="tab active" data-target="tab1">Text Output</div>
+                <div class="tab" data-target="tab2">JSON Output</div>
+            </div>
+
+            <div class="tab-content active" id="tab1">
+    <pre><code class="exampleOutput">🎥 TimecodeTool Validate
+─────────────────────────────
+Input Timecode:   00:07:00;00
+Frame Rate (FPS): 29.97
+Valid Timecode:   ❌ No
+Error:            00:07:00;00 is valid timecode for drop frame.
+─────────────────────────────
+</code></pre>
+            </div>
+            <div class="tab-content" id="tab2">
+    <pre><code class="exampleOutput">{
+  "inputTimecode": "00:07:00;00",
+  "inputFps": 29.97,
+  "valid": false,
+  "errorMsg": "00:07:00;00 is valid timecode for drop frame.",
+  "isDf": false,
+  "nextTimecode": ""
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper style3 fullscreen fade-up">
+        <div class="inner">
+            <h2>Timecode Spans</h2>
+            <p>Enter a span to see if it is valid. Greate for scripting and checking user input.</p>
+            <pre><code>TimecodeTool span --fps=23.98 "00:01:00:00" "00:04:00:00"</code></pre>
+            <div class="tabs">
+                <div class="tab active" data-target="tab1_span">Text Output</div>
+                <div class="tab" data-target="tab2_span">JSON Output</div>
+            </div>
+
+            <div class="tab-content active" id="tab1_span">
+    <pre><code class="exampleOutput">🎥 TimecodeTool Validate
+─────────────────────────────
+Input Timecode:   00:07:00;00
+Frame Rate (FPS): 29.97
+Valid Timecode:   ❌ No
+Error:            00:07:00;00 is valid timecode for drop frame.
+─────────────────────────────
+</code></pre>
+            </div>
+            <div class="tab-content" id="tab2_span">
+    <pre><code class="exampleOutput">{
+  "inputTimecode": "00:07:00;00",
+  "inputFps": 29.97,
+  "valid": false,
+  "errorMsg": "00:07:00;00 is valid timecode for drop frame.",
+  "isDf": false,
+  "nextTimecode": ""
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three -->
+    <section id="three" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+            <h2>Calculate</h2>
+            <p>Enter a series of calculations to return a final run length.</p>
+            <pre><code>TimecodeTool calculate --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code></pre>
+        <div class="tabs">
+                <div class="tab active" data-target="tab1_calc">Text Output</div>
+                <div class="tab" data-target="tab2_calc">JSON Output</div>
+            </div>
+
+            <div class="tab-content active" id="tab1_calc">
+    <pre><code class="exampleOutput">🎥 TimecodeTool Calculate
+─────────────────────────────
+ 🎬 Starting Timecode:      00:01:00:00 (Index 1440)
+   ➕  Add Timecode:         00:04:00:00 (5761 frames)
+   ➕  Add Timecode:         00:00:00:02 (3 frames)
+   ➖  Sub Timecode:         00:00:00:10 (11 frames)
+─────────────────────────────
+ 🟰  Resulting Timecode:    00:04:59:17 (5754 total frames)
+1440 ➡️ 7193 frame indexes
+─────────────────────────────
+</code></pre>
+            </div>
+            <div class="tab-content" id="tab2_calc">
+    <pre><code class="exampleOutput">{
+  "inputFirstTimecode": "00:01:00:00",
+  "inputFps": 23.98,
+  "valid": true,
+  "errorMsg": "",
+  "isDf": false,
+  "excludeLastTimecode": false,
+  "startFrameIdx": 1440,
+  "lastFrameIdx": 7193,
+  "lengthFrames": 5754,
+  "lengthTime": "00:03:59.950",
+  "lengthTimecode": "00:03:59:18",
+  "lengthSeconds": 239.94995829858215,
+  "nextTimecode": "00:04:59:18",
+  "lastTimecode": "00:04:59:17",
+  "Steps": [
+    {
+      "operation": "+",
+      "timecode": "00:04:00:00",
+      "frames": 5761
+    },
+    {
+      "operation": "+",
+      "timecode": "00:00:00:02",
+      "frames": 3
+    },
+    {
+      "operation": "-",
+      "timecode": "00:00:00:10",
+      "frames": 11
+    }
+  ]
+}
+</code></pre>
+            </div>
+        </div>
+    </section>
+    <section id="dd" class="wrapper style2 fullscreen fade-up">
+        <div class="inner">
+            <h2>Download</h2>
+            <p>Please choose which platform to download from. This will download the latest version from Github. Access all <a href="https://github.com/marcrleonard/TimecodeTool/releases">old versions here</a>.</p>
+            <ul class="actions">
+                <li><a href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-osx-arm64" class="button scrolly"><img
+                        style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/mac-60.svg">OSX (arm64)</a></li>
+                <li><a href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-linux-amd64" class="button scrolly"><img
+                        style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/linux-52.png">Linux (amd64)</a></li>
+                <li><a href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-windows-amd64.exe" class="button scrolly"><img
+                        style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/windows10.svg">Windows (amd64)</a></li>
+
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="wrapper style1">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy;TimecodeTool. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    let activeTabs = {}; // Store active tabs per section
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Get the section the tab belongs to
+            const section = tab.closest('section').id;
+
+            // Remove active class from all tabs and contents in the same section
+            const sectionTabs = document.querySelectorAll(`#${section} .tab`);
+            const sectionContents = document.querySelectorAll(`#${section} .tab-content`);
+
+            sectionTabs.forEach(t => t.classList.remove('active'));
+            sectionContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to the clicked tab and corresponding content
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.target).classList.add('active');
+
+            // Save the active tab for this section
+            activeTabs[section] = tab.dataset.target;
+        });
+    });
+
+    // Restore active tabs when navigating between sections
+    document.querySelectorAll('section').forEach(section => {
+        const sectionId = section.id;
+
+        if (activeTabs[sectionId]) {
+            const activeTab = document.querySelector(`#${sectionId} .tab[data-target="${activeTabs[sectionId]}"]`);
+            const activeContent = document.querySelector(`#${activeTabs[sectionId]}`);
+
+            if (activeTab && activeContent) {
+                activeTab.classList.add('active');
+                activeContent.classList.add('active');
+            }
+        } else {
+            // Default: Activate the first tab if no state is saved
+            const firstTab = section.querySelector('.tab');
+            const firstContent = section.querySelector('.tab-content');
+
+            if (firstTab && firstContent) {
+                firstTab.classList.add('active');
+                firstContent.classList.add('active');
+            }
+        }
+    });
+</script>
+
+</body>
 </html>
