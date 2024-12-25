@@ -82,10 +82,10 @@
     <section id="intro" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             <h1 class="major">Timecode Tool</h1>
-            <p>TimecodeTool is a CLI that is meant to validate and calculate timecode spans. It is an <a
+            <p>TimecodeTool is a CLI that is can validate timecode and calculate timecode spans. It is an <a
                     href="https://github.com/marcrleonard/TimecodeTool/">open-source project</a> written in Go by <a
                     href="https://marcrleonard.com">Marc Leonard</a>.
-                is released for free under the <a href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT
+                It is released under the <a href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT
                     License</a>.</p>
             <ul class="actions">
                 <li><a href="#dd" class="button scrolly"><img style="padding-right: 10px; margin-bottom: -5px" height="20"  src="images/download-64.png"> Download</a>
@@ -102,7 +102,7 @@
     <section id="one" class="wrapper style2 fullscreen fade-up">
         <div class="inner">
             <h2>Validate</h2>
-            <p>Enter a timecode to see if it is valid. Greate for scripting and checking user input.</p>
+            <p>Enter a timecode to see if it is valid. This is very helpful for those pesky drop frame timecodes.</p>
             <pre><code>TimecodeTool validate --fps=29.97 "00:07:00;00"</code></pre>
             <div class="tabs">
                 <div class="tab active" data-target="tab1">Text Output</div>
@@ -135,7 +135,7 @@ Error:            00:07:00;00 is valid timecode for drop frame.
     <section id="two" class="wrapper style3 fullscreen fade-up">
         <div class="inner">
             <h2>Timecode Spans</h2>
-            <p>Enter a span to see if it is valid. Greate for scripting and checking user input.</p>
+            <p>Enter two timecodes to check how many frames, seconds, etc... are between the two. Using the `-e` flag will exclude the last frame of the last timecode.</p>
             <pre><code>TimecodeTool span --fps=23.98 "00:01:00:00" "00:04:00:00"</code></pre>
             <div class="tabs">
                 <div class="tab active" data-target="tab1_span">Text Output</div>
@@ -183,7 +183,7 @@ Next Timecode:        00:04:00:01
     <section id="three" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             <h2>Calculate</h2>
-            <p>Enter a series of calculations to return a final run length.</p>
+            <p>Enter a series of calculations to return a final run length, and data from the span.</p>
             <pre><code>TimecodeTool calculate --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code></pre>
         <div class="tabs">
                 <div class="tab active" data-target="tab1_calc">Text Output</div>
