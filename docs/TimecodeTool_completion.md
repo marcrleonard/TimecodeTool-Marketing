@@ -16,13 +16,7 @@ See each sub-command's help for details on how to use the generated script.
 
 ### SEE ALSO
 
-* [TimecodeTool](TimecodeTool.md)	 - A timecode CLI tool 
-
-`TimecodeTool validate [args] [flags]` For timecode validation
-
-`TimecodeTool span [args] [flags]` For timecode span length information
-
-`TimecodeTool calculator [args] [flags]` for timecode calculations
+* [TimecodeTool](TimecodeTool.md)	 - A timecode CLI tool.
 * [TimecodeTool completion bash](TimecodeTool_completion_bash.md)	 - Generate the autocompletion script for bash
 * [TimecodeTool completion fish](TimecodeTool_completion_fish.md)	 - Generate the autocompletion script for fish
 * [TimecodeTool completion powershell](TimecodeTool_completion_powershell.md)	 - Generate the autocompletion script for powershell

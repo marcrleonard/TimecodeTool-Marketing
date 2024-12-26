@@ -1,6 +1,10 @@
 ## TimecodeTool
 
-A timecode CLI tool 
+A timecode CLI tool.
+
+### Synopsis
+
+A timecode CLI tool.
 
 `TimecodeTool validate [args] [flags]` For timecode validation
 
