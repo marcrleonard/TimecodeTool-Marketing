@@ -13,13 +13,12 @@
     <meta name="keywords" content="timecode, CLI tool, video timecodes, timecode conversion, video project management, command-line video tools, timecode synchronization" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css"/>
     </noscript>
 
     <style>
-        .exampleOutput {
+        .example-output {
             margin: 0;
             border-radius: 0.0em 0.25em 0.25em 0.25em;
         }
@@ -82,17 +81,21 @@
     <section id="intro" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             <h1 class="major">Timecode Tool</h1>
-            <p>TimecodeTool is a CLI that is can validate timecode and calculate timecode spans. It is an <a
+            <p>TimecodeTool is a CLI that is can validate timecode and calculate timecode spans. It is an <a target="_blank"
                     href="https://github.com/marcrleonard/TimecodeTool/">open-source project</a> written in Go by <a
                     href="https://marcrleonard.com">Marc Leonard</a>.
-                It is released under the <a href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT
+                It is released under the <a target="_blank" href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT
                     License</a>.</p>
             <ul class="actions">
-                <li><a href="#dd" class="button scrolly"><img style="padding-right: 10px; margin-bottom: -5px" height="20"  src="images/download-64.png"> Download</a>
+                <li><a target="_blank" href="#dd" class="button scrolly"><img style="padding-right: 10px; margin-bottom: -5px" height="20"  src="images/download-64.png"> Download</a>
                 </li>
-                <li><a href="https://github.com/marcrleonard/TimecodeTool" class="button scrolly"><img
+                <li><a target="_blank" href="https://github.com/marcrleonard/TimecodeTool" class="button scrolly"><img
                         style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/github-mark-white.svg">View
-                    on GitHub</a></li>
+                    on GitHub</a>
+                </li>
+                <li><a target="_blank" href="/docs" class="button scrolly"><img
+                        style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/icons8-document.svg">Documentation</a>
+                </li>
 
             </ul>
         </div>
@@ -101,8 +104,8 @@
     <!-- One -->
     <section id="one" class="wrapper style2 fullscreen fade-up">
         <div class="inner">
-            <h2>Validate</h2>
-            <p>Enter a timecode to see if it is valid. This is very helpful for those pesky drop frame timecodes.</p>
+            <h2 class="major">Validate</h2>
+            <p>Enter a timecode to see if it is valid. This is very helpful for those pesky drop frame timecodes. <br><a target="_blank" href="/docs/TimecodeTool_validate.html">Validate Documentation &#8594;</a></p>
             <pre><code>TimecodeTool validate --fps=29.97 "00:07:00;00"</code></pre>
             <div class="tabs">
                 <div class="tab active" data-target="tab1">Text Output</div>
@@ -110,7 +113,7 @@
             </div>
 
             <div class="tab-content active" id="tab1">
-    <pre><code class="exampleOutput">🎥 TimecodeTool Validate
+    <pre><code class="example-output">🎥 TimecodeTool Validate
 ─────────────────────────────
 Input Timecode:   00:07:00;00
 Frame Rate (FPS): 29.97
@@ -119,7 +122,7 @@ Error:            00:07:00;00 is valid timecode for drop frame.
 ─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2">
-    <pre><code class="exampleOutput">{
+    <pre><code class="example-output">{
   "inputTimecode": "00:07:00;00",
   "inputFps": 29.97,
   "valid": false,
@@ -134,8 +137,8 @@ Error:            00:07:00;00 is valid timecode for drop frame.
     <!-- Two -->
     <section id="two" class="wrapper style3 fullscreen fade-up">
         <div class="inner">
-            <h2>Timecode Spans</h2>
-            <p>Enter two timecodes to check how many frames, seconds, etc... are between the two. Using the `-e` flag will exclude the last frame of the last timecode.</p>
+            <h2 class="major">Timecode Spans</h2>
+            <p>Enter two timecodes to check how many frames, seconds, etc... are between the two. Using the `-e` flag will exclude the last frame of the last timecode. <br><a target="_blank" href="/docs/TimecodeTool_span.html">Span Documentation &#8594;</a></p>
             <pre><code>TimecodeTool span --fps=23.98 "00:01:00:00" "00:04:00:00"</code></pre>
             <div class="tabs">
                 <div class="tab active" data-target="tab1_span">Text Output</div>
@@ -143,7 +146,7 @@ Error:            00:07:00;00 is valid timecode for drop frame.
             </div>
 
             <div class="tab-content active" id="tab1_span">
-    <pre><code class="exampleOutput">🎥 TimecodeTool Span
+    <pre><code class="example-output">🎥 TimecodeTool Span
 ─────────────────────────────
 First Timecode:   00:01:00:00
 Last Timecode:    00:04:00:00
@@ -159,7 +162,7 @@ Next Timecode:        00:04:00:01
 ─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2_span">
-    <pre><code class="exampleOutput">{
+    <pre><code class="example-output">{
   "inputFirstTimecode": "00:01:00:00",
   "inputLastTimecode": "00:04:00:00",
   "inputFps": 23.98,
@@ -182,8 +185,8 @@ Next Timecode:        00:04:00:01
     <!-- Three -->
     <section id="three" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
-            <h2>Calculate</h2>
-            <p>Enter a series of calculations to return a final run length, and data from the span.</p>
+            <h2 class="major">Calculate</h2>
+            <p>Enter a series of calculations to return a final run length, and data from the span. <br><a target="_blank" href="/docs/TimecodeTool_calculate.html">Calculate Documentation &#8594;</a></p>
             <pre><code>TimecodeTool calculate --fps=23.98 "00:01:00:00" + "00:04:00:00" + 2 - "00:00:00:10" </code></pre>
         <div class="tabs">
                 <div class="tab active" data-target="tab1_calc">Text Output</div>
@@ -191,7 +194,7 @@ Next Timecode:        00:04:00:01
             </div>
 
             <div class="tab-content active" id="tab1_calc">
-    <pre><code class="exampleOutput">🎥 TimecodeTool Calculate
+    <pre><code class="example-output">🎥 TimecodeTool Calculate
 ─────────────────────────────
  🎬 Starting Timecode:      00:01:00:00 (Index 1440)
    ➕  Add Timecode:         00:04:00:00 (5761 frames)
@@ -203,7 +206,7 @@ Next Timecode:        00:04:00:01
 ─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2_calc">
-    <pre><code class="exampleOutput">{
+    <pre><code class="example-output">{
   "inputFirstTimecode": "00:01:00:00",
   "inputFps": 23.98,
   "valid": true,
@@ -242,13 +245,13 @@ Next Timecode:        00:04:00:01
     <section id="dd" class="wrapper style2 fullscreen fade-up">
         <div class="inner">
             <h2>Download</h2>
-            <p>Please choose which platform to download for. This will download the latest version from Github. Access all <a href="https://github.com/marcrleonard/TimecodeTool/releases">old versions here</a>.</p>
+            <p>Please choose which platform to download for. This will download the latest version from Github. Access all <a target="_blank" href="https://github.com/marcrleonard/TimecodeTool/releases">old versions here</a>.</p>
             <ul class="actions">
-                <li><a href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-osx-arm64" class="button scrolly"><img
+                <li><a target="_blank" href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-osx-arm64" class="button scrolly"><img
                         style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/mac-60.svg">OSX (arm64)</a></li>
-                <li><a href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-linux-amd64" class="button scrolly"><img
+                <li><a target="_blank" href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-linux-amd64" class="button scrolly"><img
                         style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/linux-52.png">Linux (amd64)</a></li>
-                <li><a href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-windows-amd64.exe" class="button scrolly"><img
+                <li><a target="_blank" href="https://github.com/marcrleonard/TimecodeTool/releases/latest/download/TimecodeTool-windows-amd64.exe" class="button scrolly"><img
                         style="padding-right: 10px; margin-bottom: -5px" height="20" src="images/windows10.svg">Windows (amd64)</a></li>
 
             </ul>
@@ -262,7 +265,7 @@ Next Timecode:        00:04:00:01
     <div class="inner">
         <ul class="menu">
             <li>&copy;TimecodeTool. All rights reserved.</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>Design: <a target="_blank" href="http://html5up.net">HTML5 UP</a></li>
         </ul>
     </div>
 </footer>
