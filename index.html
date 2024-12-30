@@ -105,7 +105,7 @@
     <section id="one" class="wrapper style2 fullscreen fade-up">
         <div class="inner">
             <h2 class="major">Validate</h2>
-            <p>Enter a timecode to see if it is valid. This is very helpful for those pesky drop frame timecodes. <br><a target="_blank" href="/docs/TimecodeTool_validate.html">Validate Documentation &#8594;</a></p>
+            <p>Enter a timecode to check if it is valid. This is very helpful for those pesky drop frame timecodes. <br><a target="_blank" href="/docs/TimecodeTool_validate.html">Validate Documentation &#8594;</a></p>
             <pre><code>TimecodeTool validate --fps=29.97 "00:07:00;00"</code></pre>
             <div class="tabs">
                 <div class="tab active" data-target="tab1">Text Output</div>
@@ -118,7 +118,7 @@
 Input Timecode:   00:07:00;00
 Frame Rate (FPS): 29.97
 Valid Timecode:   ❌ No
-Error:            00:07:00;00 is valid timecode for drop frame.
+Error:            00:07:00;00 is not valid timecode for drop frame.
 ─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2">
@@ -126,7 +126,7 @@ Error:            00:07:00;00 is valid timecode for drop frame.
   "inputTimecode": "00:07:00;00",
   "inputFps": 29.97,
   "valid": false,
-  "errorMsg": "00:07:00;00 is valid timecode for drop frame.",
+  "errorMsg": "00:07:00;00 is not valid timecode for drop frame.",
   "isDf": false,
   "nextTimecode": ""
 }</code></pre>
