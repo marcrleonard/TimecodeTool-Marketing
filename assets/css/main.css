@@ -221,6 +221,9 @@ input, select, textarea {
 	h2 {
 		font-size: 1.75em;
 	}
+		h2 code {
+			vertical-align: 0.1em;
+		}
 		h2.major {
 			margin: 0 0 0.35em 0;
 			position: relative;
