@@ -1,6 +1,6 @@
 ## TimecodeTool schema
 
-
+Returns a valid json schema that describes the json output for each tool in the CLI
 
 ### Synopsis
 

@@ -22,7 +22,7 @@ A timecode CLI tool.
 
 * [TimecodeTool calculate](TimecodeTool_calculate.md)	 - Timecode/Frame calculator. Enter either timecode strings or frame numbers. 
 * [TimecodeTool completion](TimecodeTool_completion.md)	 - Generate the autocompletion script for the specified shell
-* [TimecodeTool schema](TimecodeTool_schema.md)	 - 
+* [TimecodeTool schema](TimecodeTool_schema.md)	 - Returns a valid json schema that describes the json output for each tool in the CLI
 * [TimecodeTool span](TimecodeTool_span.md)	 - Get duration information spanning two timecodes.
 * [TimecodeTool validate](TimecodeTool_validate.md)	 - Returns a timecodes validity and information regarding the frame.
 
