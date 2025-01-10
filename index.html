@@ -92,7 +92,7 @@
     <section id="intro" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             <h1 class="major">Timecode Tool</h1>
-            <p>TimecodeTool is a CLI that is can validate timecode and calculate timecode spans. It is an <a target="_blank"
+            <p>TimecodeTool is a CLI that can validate timecode and calculate timecode spans. It is an <a target="_blank"
                     href="https://github.com/marcrleonard/TimecodeTool/">open-source project</a> written in Go by <a
                     href="https://marcrleonard.com">Marc Leonard</a>.
                 It is released under the <a target="_blank" href="https://github.com/marcrleonard/TimecodeTool/blob/main/LICENSE">MIT
@@ -129,7 +129,7 @@
 Input Timecode:   00:07:00;00
 Frame Rate (FPS): 29.97
 Valid Timecode:   ❌ No
-Error:            00:07:00;00 is not valid timecode for drop frame.
+Error:            00:07:00;00 is not valid drop frame timecode
 ─────────────────────────────</code></pre>
             </div>
             <div class="tab-content" id="tab2">
@@ -137,7 +137,7 @@ Error:            00:07:00;00 is not valid timecode for drop frame.
   "inputTimecode": "00:07:00;00",
   "inputFps": 29.97,
   "valid": false,
-  "errorMsg": "00:07:00;00 is not valid timecode for drop frame.",
+  "errorMsg": "00:07:00;00 is not valid drop frame timecode",
   "isDf": true,
   "nextTimecode": ""
 }</code></pre>
